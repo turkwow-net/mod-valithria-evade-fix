@@ -3,12 +3,12 @@
 #include "Creature.h"
 #include "Map.h"
 
-class valithria_evade_fix : public GlobalScript
+class valithria_evade_fix : public AllCreatureScript
 {
 public:
-    valithria_evade_fix() : GlobalScript("valithria_evade_fix") {}
+    valithria_evade_fix() : AllCreatureScript("valithria_evade_fix") {}
 
-    void OnCreatureUpdate(Creature* creature, uint32 /*diff*/) override
+    void OnAllCreatureUpdate(Creature* creature, uint32 /*diff*/) override
     {
         // 36853 is NPC_GREEN_DRAGON_COMBAT_TRIGGER
         if (creature->GetEntry() == 36853)
