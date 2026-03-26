@@ -16,7 +16,8 @@ public:
             if (creature->IsInCombat())
             {
                 // In new threat system, GetUnsortedThreatList() might be empty for triggers
-                if (creature->GetThreatMgr().GetUnsortedThreatList().empty())
+                auto const& threatList = creature->GetThreatMgr().GetUnsortedThreatList();
+                if (threatList.begin() == threatList.end())
                 {
                     Map* map = creature->GetMap();
                     if (map && map->IsDungeon())
